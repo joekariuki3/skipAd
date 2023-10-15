@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "skipAdd",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "background.service_worker": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/"],
+      "js": ["skipadd.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
